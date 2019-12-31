@@ -1,0 +1,51 @@
+---
+   theatres:
+     - name: rama
+       movie: "Athadu"
+       timings:
+         - 11:00
+         - 2:30
+         - 6:30
+         - 9:30
+       price:
+         - 50
+         - 100
+         - 150
+       location: Asilemtta,vizag
+     - name: sangam
+       movie:
+       timings:
+         - 11:00
+         - 2:30
+         - 6:30
+         - 9:30
+       price:
+         - 50
+         - 100
+         - 150
+       location: railwaystation,vizag
+     - name: jagadamba
+       movie:
+       timings:
+         - 11:00
+         - 2:30
+         - 6:30
+         - 9:30
+       price:
+         - 50
+         - 100
+         - 150
+       
+       location: jagadamba,vizag
+     - name: kinnera
+       movie:
+       timings:
+         - 11:00
+         - 2:30
+         - 6:30
+         - 9:30
+       price:
+         - 50
+         - 100
+         - 150
+       location: central,vizag

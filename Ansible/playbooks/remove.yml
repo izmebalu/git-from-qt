@@ -1,0 +1,15 @@
+---
+ - hosts: appserver
+   become: yes
+   tasks:
+     - name: remove apache
+       yum:
+         name: httpd
+         stable: absent
+     - name: remove nginx
+       yum:
+         name: nginx
+         stable: absent  
+
+         
+           

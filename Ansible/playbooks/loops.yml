@@ -1,0 +1,38 @@
+---
+ - hosts: webserver
+   become: yes
+   tasks: 
+   - name: install "{{item}}"
+     yum:
+       name: "{{item}}"
+       state: removed
+     when: ansible_os_family == "Redhat"  
+     with_items: 
+     - git
+     - tree
+     - wget   
+   - name: print free memory
+     debug:
+       msg: "free memory is {{ansible_memory_mb.real.free}}"
+     tags:
+       - debug     
+
+
+
+---
+ - hosts: webserver
+   become: yes
+   tasks:
+     - name: install apache
+       yum:
+         name: "{{webserver_package}}"
+         state: present
+     - name: install nginx
+       yum:
+         name: "{{webserver_package}}"
+         state: present
+     - name: start httpd service
+       service:
+         name: httpd
+         state: started
+         enabled: yes

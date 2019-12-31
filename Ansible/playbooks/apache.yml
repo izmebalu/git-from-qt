@@ -1,0 +1,51 @@
+---
+ - hosts: all
+   become: yes
+   tasks:
+     - name: install apache server
+       yum: 
+         name: httpd
+         state: present
+     - name: install nginx server
+       yum: 
+         name: nginx
+         state: present    
+
+     - name: starting apache service 
+       service:
+         name: httpd
+         state: started     
+
+---
+ - hosts: all
+   become: yes
+   tasks:
+     - name: installing apache server in redhat
+       yum: 
+         name: httpd
+         state: present
+       when: ansible_os_family == "RedHat"
+       tags: 
+         - install
+         - service 
+     - name: install apache server in ubuntu
+       apt: 
+         name: httpd
+         state: present
+       when: ansible_os_family == "Debian"     
+     - name: install nginx server
+       yum: 
+         name: nginx
+         state: present    
+     - name: starting apache service 
+       service:
+         name: httpd
+         state: started 
+
+
+
+
+
+         "ansible_distribution": "RedHat"
+         ansible_hostname"
+         "ansible_os_family": "RedHat"

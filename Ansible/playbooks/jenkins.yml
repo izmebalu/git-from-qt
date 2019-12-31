@@ -1,0 +1,25 @@
+---
+ - hosts: appserver
+   become: yes
+   tasks:
+     - name: install javaopenjdk
+       yum:
+         name: java-1.8.0-openjdk.x86_64
+         state: present
+     - name: install wget
+       yum:
+         name: wget
+         state: present
+     - name: install tomcat 7
+       yum:
+         name: tomcat
+         state: present    
+     - name: download jenkins to webapps
+       get_url:
+         url: http://ftp-chi.osuosl.org/pub/jenkins/war-stable/2.204.1/jenkins.war
+         dest: /usr/share/tomcat/webapps/jenkins.war
+     - name: start tomcat service
+       service:
+         name: tomcat
+         state: started
+         enabled: yes                   
