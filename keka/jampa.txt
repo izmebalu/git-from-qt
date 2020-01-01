@@ -1,2 +1,5 @@
+<<<<<<< HEAD
 hello bharath how are you?? 
 i know what are you doing 
+=======
+
